@@ -7,7 +7,11 @@ export default function App() {
 	return (
 		<div className="App">
 			<div className="prose">
-				<MDXProvider components={{ KebabCase() { return "HelloWorld!" } }}>
+				<MDXProvider components={{
+					ProvidedComponent() {
+						return <h6><code>{"<ProvidedComponent />"}</code></h6>
+					}
+				}}>
 					<HelloWorld />
 				</MDXProvider>
 			</div>
