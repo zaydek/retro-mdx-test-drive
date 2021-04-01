@@ -27,10 +27,12 @@ const mdx = {
 							let out = ""
 							if (lang === "") {
 								out = `<pre><code class="language-plaintext>${code}</code></pre>`
+									.replace(/class=/g, `className=`) // For JSX
 									.replace(/({|})/g, `{"$1"}`) // For JSX
 									.replaceAll("\n", `{"\\n"}`) // For JSX
 							} else {
 								out = `<pre><code class="language-${lang}">${prism.highlight(code, Prism.languages[lang], lang)}</code></pre>`
+									.replace(/class=/g, `className=`) // For JSX
 									.replace(/({|})/g, `{"$1"}`) // For JSX
 									.replaceAll("\n", `{"\\n"}`) // For JSX
 							}
