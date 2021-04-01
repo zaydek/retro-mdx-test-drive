@@ -1,4 +1,4 @@
-import HelloWorld from "./HelloWorld.md"
+import HelloWorld from "./HelloWorld.mdx"
 
 import "./App.scss"
 

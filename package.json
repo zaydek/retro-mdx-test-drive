@@ -9,9 +9,10 @@
 		"react-dom": "v17.0.2"
 	},
 	"devDependencies": {
+		"@mdx-js/mdx": "^1.6.22",
+		"@mdx-js/react": "^1.6.22",
 		"@zaydek/retro": "v0.0.35",
 		"esbuild": "v0.10.2",
-		"markdown-it": "^12.0.4",
 		"prismjs": "^1.23.0",
 		"sass": "^1.32.8"
 	}
