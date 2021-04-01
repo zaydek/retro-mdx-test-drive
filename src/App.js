@@ -6,7 +6,7 @@ export default function App() {
 	return (
 		<div className="App">
 			<div className="prose">
-				<HelloWorld replacements={[["%%THING%%", "Hello, world!"]]} />
+				<HelloWorld />
 			</div>
 		</div>
 	)

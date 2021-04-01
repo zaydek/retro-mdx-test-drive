@@ -1,11 +1,11 @@
-const markdown_it = {
+const markdown = {
 	name: "markdown-it",
 	setup(build) {
 		const fs = require("fs")
-		const markdown_it = require("markdown-it")
+		const markdown = require("markdown-it")
 		const prism = require("prismjs")
 
-		const markdown = markdown_it({
+		const gfm = markdown({
 			html: true,
 			highlight(code, lang) {
 				if (lang === "") return code
@@ -16,16 +16,11 @@ const markdown_it = {
 
 		build.onLoad({ filter: /\.md$/ }, async args => {
 			const text = await fs.promises.readFile(args.path, "utf8")
+			const contents = gfm.render(text).replace(/({|})/g, `{"$1"}`).replaceAll("\n", `{"\\n"}`)
 			return {
 				contents: `
-					export default function Markdown({ replacements }) {
-						let __html = ${JSON.stringify(markdown.render(text))}
-						if (replacements !== undefined) {
-							for (const [v1, v2] of replacements) {
-								__html = __html.replaceAll(v1, v2)
-							}
-						}
-						return <div dangerouslySetInnerHTML={{ __html }}></div>
+					export default function Markdown() {
+						return <>${contents}</>
 					}
 				`,
 				loader: "jsx",
@@ -51,7 +46,7 @@ const sass = {
 
 module.exports = {
 	plugins: [
-		markdown_it,
+		markdown,
 		sass,
 	],
 }
