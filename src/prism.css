@@ -1,0 +1,19 @@
+pre > code {
+	color: white;
+}
+.token.keyword {
+	color: rgb(255, 180, 209);
+}
+.token.operator,
+.token.punctuation {
+	color: lightskyblue;
+}
+.token.function {
+	color: rgb(137, 178, 255);
+}
+.token.string {
+	color: rgb(176, 255, 176);
+}
+.token.comment {
+	color: gray;
+}
