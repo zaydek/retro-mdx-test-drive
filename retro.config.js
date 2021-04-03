@@ -75,6 +75,7 @@ const sass = {
 }
 
 module.exports = {
+	target: ["es2017"],
 	plugins: [
 		mdx,
 		sass,
